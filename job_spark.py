@@ -1,4 +1,4 @@
-# Comentário para modificar o arquivo .py haha
+
 from pyspark.sql.functions import mean, max, min, col, count
 from pyspark.sql import SparkSession
 
@@ -15,7 +15,7 @@ enem = (
     .option("header", True)
     .option("inferSchema", True)
     .option("delimiter", ";")
-    .load("s3://digao-data-late-raw/ratings.csv")
+    .load("s3://digao-data-lake-raw/ratings.csv")
 )
 
 
@@ -24,5 +24,5 @@ enem = (
     .write
     .mode("overwrite")
     .format("parquet")
-    .save("s3:::digao-data-late-processed")
+    .save("s3:::digao-data-lake-processed")
 )
